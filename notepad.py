@@ -28,6 +28,11 @@
 
 """
 
+
+print("\nNotepad Macros Start-Up")
+print('------------------------')
+
+
 from dragonfly import (Grammar, AppContext, MappingRule, Dictation,
                        Key, Text, Pause)
 

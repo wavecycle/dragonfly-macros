@@ -28,6 +28,10 @@
 
 """
 
+print('--------------------------------')
+print("Android Emulator Macros Start-Up")
+print('--------------------------------')
+
 from dragonfly import (Grammar, AppContext, MappingRule, Dictation,
                        Key, Text, Pause)
 
@@ -35,12 +39,8 @@ from dragonfly import (Grammar, AppContext, MappingRule, Dictation,
 #---------------------------------------------------------------------------
 # Create this module's grammar and the context under which it'll be active.
 
-grammar_context = AppContext(executable="studio64")
-grammar = Grammar("Android studio", context=grammar_context)
-
-print('--------------------------------')
-print("Android Studio Macros Start-Up")
-print('--------------------------------')
+grammar_context = AppContext(executable="emulator") #qemu-system-i386.exe
+grammar = Grammar("Android emulator", context=grammar_context)
 
 
 #---------------------------------------------------------------------------
@@ -52,87 +52,79 @@ print('--------------------------------')
 #  the Dictation("text")* extra makes it possible to use "<text>"
 #  within a mapping spec and "%(text)s" within the associated action.
 
-studio_rule = MappingRule(
-    name="Android studio rule",    # The name of the rule.
+emulator_rule = MappingRule(
+    name="emulator rule",    # The name of the rule.
     mapping={          # The mapping dict: spec -> action.
 			# syntax for multiple keypress: "tab [<n>]": Key("tab:%(n)d"),
-            "android settings":			Key("ca-s"),
-			"android info":				Key("a-enter"),
-			"view right":				Key("as-right"),
-			"view left":				Key("as-left"),
+            # "android settings":			Key("ca-s"),
+			# "android info":				Key("a-enter"),
 
-			"android run":				Key("as-f10"),
-			"android debug":			Key("as-f9"),
-			"android resume":			Key("f9"),
-			"android stop":				Key("c-f2"),
-			"android evaluate":			Key("a-f8"),
-			"step into":				Key("f7"),
-			"step over":				Key("f8"),
-			"step cursor":				Key("a-f9"),
-			"breakpoint toggle":		Key("c-f8"),
-			"android watch":			Key("a-["),
-			"warning next":				Key("f2"),
-			"warning previous":			Key("s-f2"),
+			# "android run":				Key("as-f10"),
+			# "android debug":			Key("as-f9"),
+			# "android resume":			Key("f9"),
+			# "android stop":				Key("c-f2"),
+			# "android evaluate":			Key("a-f8"),
+			# "step into":				Key("f7"),
+			# "step over":				Key("f8"),
+			# "step cursor":				Key("a-f9"),
+			# "breakpoint toggle":		Key("c-f8"),
+			# "android watch":			Key("a-["),
+			# "warning next":				Key("f2"),
+			# "warning previous":			Key("s-f2"),
 
-			#"delete [<n>]":				Key("delete:%(n)d"),
-			"line delete":				Key("s-delete"),
-			"line duplicate":			Key("c-d"),
+			# #"delete [<n>]":				Key("delete:%(n)d"),
+			# "line delete":				Key("s-delete"),
+			# "line duplicate":			Key("c-d"),
 
-			"menu file":				Key("a-f"),
-			"menu edit":				Key("a-e"),
-			"menu view":				Key("a-v"),
-			"menu navigate":			Key("a-n"),
-			"menu code":				Key("a-c"),
-			"menu analyze":				Key("a-z"),
-			"menu refactor":			Key("a-r"),
-			"menu build":				Key("a-b"),
-			"menu run":					Key("a-u"),
-			"menu tools":				Key("a-t"),
-			"menu VCS":					Key("a-s"),
-			"menu window":				Key("a-w"),
-			"menu help":				Key("a-h"),
+			# "menu file":				Key("a-f"),
+			# "menu edit":				Key("a-e"),
+			# "menu view":				Key("a-v"),
+			# "menu navigate":			Key("a-n"),
+			# "menu code":				Key("a-c"),
+			# "menu analyze":				Key("a-z"),
+			# "menu refactor":			Key("a-r"),
+			# "menu build":				Key("a-b"),
+			# "menu run":					Key("a-u"),
+			# "menu tools":				Key("a-t"),
+			# "menu VCS":					Key("a-s"),
+			# "menu window":				Key("a-w"),
+			# "menu help":				Key("a-h"),
 
-			"panel project":			Key("a-1"),
-			"panel favorites":			Key("a-2"),
-			"panel find":				Key("a-3"),
-			"panel run":				Key("a-4"),
-			"panel logcat":				Key("a-6"),
-			"panel structure":			Key("a-7"),
-			"panel terminal":			Key("a-f12"),
+			# "panel project":			Key("a-1"),
+			# "panel favorites":			Key("a-2"),
+			# "panel find":				Key("a-3"),
+			# "panel run":				Key("a-4"),
+			# "panel logcat":				Key("a-6"),
+			# "panel structure":			Key("a-7"),
 			
-			"code left":				Key("a-left"),
-			"code right":				Key("a-right"),
-			"code close":				Key("c-f4"),
-			"code reformat":			Key("ca-l"),
-			"method up":				Key("a-up"),
-			"method down":				Key("a-down"),
-			"brace jump":				Key("cs-m"),
-			"comment line":				Key("c-slash"),
-			"comment block":			Key("cs-slash"),
-			"android select":			Key("c-w"),
-			"refactor rename":			Key("s-f6"),
-			"refactor options":			Key("csa-t"),
 			
-			"android override":			Key("c-o"),
-			"android implement":		Key("c-i"),
-			"android generate":			Key("a-insert"),
-			"android construct":		Key("cs-enter"),
-			"android members":			Key("c-f12"),
-			"android block":			Key("ca-t"),
+			# "code reformat":			Key("ca-l"),
+			# "code left":				Key("a-left"),
+			# "code right":				Key("a-right"),
+			# "code close":				Key("c-f4"),
+			# "method up":				Key("a-up"),
+			# "method down":				Key("a-down"),
+			# "brace jump":				Key("cs-m"),
+			# "comment line":				Key("c-slash"),
+			# "comment block":			Key("cs-slash"),
+			# "android select":			Key("c-w"),
+			# "refactor rename":			Key("s-f6"),
+			# "android override":			Key("c-o"),
+			# "android implement":		Key("c-i"),
+			# "android construct":		Key("cs-enter"),
 			
-			"android help":				Key("c-q"),			
 
-			"design right":				Key("as-right"),
-			"XML view":					Key("c-b"),
+			# "design right":				Key("as-right"),
+			# "XML view":					Key("c-b"),
 
 			"emulator back":			Key("c-backspace"),
 			"emulator home":			Key("c-h"),
 			"emulator overview":		Key("c-o"),
 
-			"difference right":			Key("as-right"),
-			"difference left":			Key("as-left"),	
-			"difference next":			Key("f7"),
-			"difference previous":		Key("s-f7"),
+			# "difference right":			Key("as-right"),
+			# "difference left":			Key("as-left"),	
+			# "difference next":			Key("f7"),
+			# "difference previous":		Key("s-f7"),
 			
 			
 			#  "save [file]":            Key("c-s"),

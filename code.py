@@ -28,6 +28,10 @@
 
 """
 
+print('------------------------')
+print("VSCode macros Start-Up")
+print('------------------------')
+
 from dragonfly import (Grammar, AppContext, MappingRule, Dictation,
                        Key, Text, Pause)
 
@@ -49,7 +53,7 @@ grammar = Grammar("vscode_example", context=grammar_context)
 #  within a mapping spec and "%(text)s" within the associated action.
 
 code_rule = MappingRule(
-    name="example",    # The name of the rule.
+    name="VScode rule",    # The name of the rule.
     mapping={          # The mapping dict: spec -> action.
              "save [file]":            Key("c-s"),
              "save [file] as":         Key("a-f, a"),

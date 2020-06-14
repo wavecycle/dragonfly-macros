@@ -51,7 +51,7 @@ specialCharMap = {
     "(bar|vertical)": "|", #bar|pipe
     "(dash|minus|hyphen)": "-",
     #"dit": ".",
-    "comma": ",",
+    #"comma": ",",
     "backslash": "\\",
     "underscore": "_",
     "(star|asterisk)": "*",
@@ -71,6 +71,15 @@ specialCharMap = {
     "bang": "!",
     "question": "?",
     "caret": "^",
+	"square bracket": "[",
+	#"lend": "end",
+
+	# "emulator back": "c-backspace",
+	# "emulator home": "c-h",
+	# "emulator overview": "c-o",
+	
+	# "Test charalcter": ",",
+
     # some other symbols I haven't imported yet, lazy sorry
     # 'ampersand': Key('ampersand'),
     # 'apostrophe': Key('apostrophe'),
@@ -133,7 +142,7 @@ letterMap = {
     "(mike) ": "m",
     "(november|noy) ": "n",
     "(Oscar|osh) ": "o",
-    "(papa|poppa|pom) ": "p",
+    "(papa|poppa|pom|pop) ": "p",
     "(quebec|quiche|queen) ": "q",
     "(romeo|ree) ": "r",
     "(sierra|soy) ": "s",
@@ -232,14 +241,16 @@ grammarCfg.cmd.map = Item(
         #"left <n> (word|words)": Key("c-left/3:%(n)d/10"),
         #"right <n> (word|words)": Key("c-right/3:%(n)d/10"),
 
-		# #Kotlin IDEA shortcuts, put in separate file later
-		# #Tried "Kotlin" file, didn't work
-		# "java run": Key("cs-f10"),
-		# "next tab": Key("ca-right"),
-		# "previous tab": Key("ca-left"),
+		# Android emulator, couldn't get own file working
+		"emulator back":			Key("c-backspace"),
+		"emulator home":			Key("c-h"),
+		"emulator overview":		Key("c-o"),
+		"emulator left":			Key("c-left"),
+		"emulator right":			Key("c-right"),
+		
 
         "home": Key("home"),
-        "end": Key("end"),
+        "(end|bend)": Key("end"),
         "doc home": Key("c-home/3"),
         "doc end": Key("c-end/3"),
         # Functional keys.
@@ -247,8 +258,9 @@ grammarCfg.cmd.map = Item(
         "space [<n>]": release + Key("space:%(n)d"),
         "(enter|slap|slop) [<n>]": release + Key("enter:%(n)d"),
         "tab [<n>]": Key("tab:%(n)d"),
-        ###"delete [<n>]": Key("del/3:%(n)d"),
-        "delete [this] line": Key("home, s-end, del"),  # @IgnorePep8
+		"delete [<n>]":	Key("delete:%(n)d"),
+        "delete line": Key("s-delete"),
+        #"delete [this] line": Key("home, s-end, del"),  # @IgnorePep8
         "backspace [<n>]": release + Key("backspace:%(n)d"),
         "application key": release + Key("apps/3"),
         "win key": release + Key("win/3"),
@@ -275,7 +287,9 @@ grammarCfg.cmd.map = Item(
         # Shorthand multiple characters.
         "double <char>": Text("%(char)s%(char)s"),
         "triple <char>": Text("%(char)s%(char)s%(char)s"),
-        "double escape": Key("escape, escape"),  # Exiting menus.
+        #ESCAPE
+		"escape": Key("escape"),
+		"double escape": Key("escape, escape"),  # Exiting menus.
         # Punctuation and separation characters, for quick editing.
         "colon [<n>]": Key("colon/2:%(n)d"),
         "semi-colon [<n>]": Key("semicolon/2:%(n)d"),
@@ -309,6 +323,8 @@ grammarCfg.cmd.map = Item(
         "visual block": Key("c-v"),
         "doc save": Key("c-s"),
         "arrow": Text("->"),
+
+		"browser address": Key("a-d"),
 
         'gope [<n>]':  Key('pgup:%(n)d'),
         #'drop [<n>]':  Key('pgdown:%(n)d'),
