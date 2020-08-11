@@ -323,6 +323,7 @@ grammarCfg.cmd.map = Item(
         "visual block": Key("c-v"),
         "doc save": Key("c-s"),
         "arrow": Text("->"),
+		"elvis": Text("?:"),
 
 		"browser address": Key("a-d"),
 

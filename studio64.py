@@ -19,17 +19,17 @@
 #
 
 """
-    This module is a simple example of Dragonfly use.
+	This module is a simple example of Dragonfly use.
 
-    It shows how to use Dragonfly's Grammar, AppContext, and MappingRule
-    classes.  This module can be activated in the same way as other
-    Natlink macros by placing it in the "My Documents\Natlink folder" or
-    "Program Files\NetLink/MacroSystem".
+	It shows how to use Dragonfly's Grammar, AppContext, and MappingRule
+	classes.  This module can be activated in the same way as other
+	Natlink macros by placing it in the "My Documents\Natlink folder" or
+	"Program Files\NetLink/MacroSystem".
 
 """
 
 from dragonfly import (Grammar, AppContext, MappingRule, Dictation,
-                       Key, Text, Pause)
+					   Key, Text, Pause)
 
 
 #---------------------------------------------------------------------------
@@ -53,11 +53,12 @@ print('--------------------------------')
 #  within a mapping spec and "%(text)s" within the associated action.
 
 studio_rule = MappingRule(
-    name="Android studio rule",    # The name of the rule.
-    mapping={          # The mapping dict: spec -> action.
+	name="Android studio rule",    # The name of the rule.
+	mapping={          # The mapping dict: spec -> action.
 			# syntax for multiple keypress: "tab [<n>]": Key("tab:%(n)d"),
-            "android settings":			Key("ca-s"),
+			"android settings":			Key("ca-s"),
 			"android info":				Key("a-enter"),
+			"android search":			Key("cs-a"),
 			"view right":				Key("as-right"),
 			"view left":				Key("as-left"),
 
@@ -103,9 +104,10 @@ studio_rule = MappingRule(
 			"code left":				Key("a-left"),
 			"code right":				Key("a-right"),
 			"code close":				Key("c-f4"),
+			# "code others":				Key(""),
 			"code reformat":			Key("ca-l"),
-			"method up":				Key("a-up"),
-			"method down":				Key("a-down"),
+			"block up":					Key("a-up"),
+			"block down":				Key("a-down"),
 			"brace jump":				Key("cs-m"),
 			"comment line":				Key("c-slash"),
 			"comment block":			Key("cs-slash"),
@@ -113,16 +115,22 @@ studio_rule = MappingRule(
 			"refactor rename":			Key("s-f6"),
 			"refactor options":			Key("csa-t"),
 			
+			
 			"android override":			Key("c-o"),
 			"android implement":		Key("c-i"),
 			"android generate":			Key("a-insert"),
 			"android construct":		Key("cs-enter"),
 			"android members":			Key("c-f12"),
 			"android block":			Key("ca-t"),
+			"android undo":				Key("c-z"),
+			"android redo":				Key("cs-z"),
+
+			"android hierarchy":		Key("c-h"),
+			"android declaration":		Key("c-b"),
 			
 			"android help":				Key("c-q"),			
 
-			"design right":				Key("as-right"),
+			#"design right":				Key("as-right"),
 			"XML view":					Key("c-b"),
 
 			"emulator back":			Key("c-backspace"),
@@ -136,31 +144,31 @@ studio_rule = MappingRule(
 			
 			
 			#  "save [file]":            Key("c-s"),
-            #  "save [file] as":         Key("a-f, a"),
-            #  "save [file] as <text>":  Key("a-f, a/20") + Text("%(text)s"),
-            #  "find <text>":            Key("c-f/20") + Text("%(text)s\n"),
-            #  "define function <text>":  Text("def ") + Text("%(text)s") + Text("():\n"),
-             
-             
-            #  "to string":               Text("str") + Key("("),
-            #  "to integer":              Text("int") + Key("("),
-            
-            # "switch to next tab":       Key("c-pgdown"),
-            # "switch to previous tab":   Key("c-pgup"),
-            # "close tab | file":         Key("c-f4"),
+			#  "save [file] as":         Key("a-f, a"),
+			#  "save [file] as <text>":  Key("a-f, a/20") + Text("%(text)s"),
+			#  "find <text>":            Key("c-f/20") + Text("%(text)s\n"),
+			#  "define function <text>":  Text("def ") + Text("%(text)s") + Text("():\n"),
+			 
+			 
+			#  "to string":               Text("str") + Key("("),
+			#  "to integer":              Text("int") + Key("("),
+			
+			# "switch to next tab":       Key("c-pgdown"),
+			# "switch to previous tab":   Key("c-pgup"),
+			# "close tab | file":         Key("c-f4"),
 
-            # "debug run":                Key("f5"),
-            # "debug stop":                Key("s-f5"),
-            # "breakpoint":               Key("f9"),
-            # "show shortcuts":           Key("c-k, c-s"),
-            # "line <text>":              Key("c-g") + Text("%(text)s") + Pause("20") + Key("enter"),
-            # "run this line": Key("csa-l"),
-            # "comment": Key("c-slash"),
-            },
-    extras=[           # Special elements in the specs of the mapping.
-            Dictation("text"),
-           ],
-    )
+			# "debug run":                Key("f5"),
+			# "debug stop":                Key("s-f5"),
+			# "breakpoint":               Key("f9"),
+			# "show shortcuts":           Key("c-k, c-s"),
+			# "line <text>":              Key("c-g") + Text("%(text)s") + Pause("20") + Key("enter"),
+			# "run this line": Key("csa-l"),
+			# "comment": Key("c-slash"),
+			},
+	extras=[           # Special elements in the specs of the mapping.
+			Dictation("text"),
+		   ],
+	)
 
 # Add the action rule to the grammar instance.
 grammar.add_rule(studio_rule)
@@ -173,9 +181,9 @@ grammar.load()
 
 # Unload function which will be called by natlink at unload time.
 def unload():
-    global grammar
-    if grammar: grammar.unload()
-    grammar = None
+	global grammar
+	if grammar: grammar.unload()
+	grammar = None
 
 
 #             "equals":                  Text("= "),
