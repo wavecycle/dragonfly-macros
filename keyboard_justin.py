@@ -54,7 +54,7 @@ specialCharMap = {
     #"comma": ",",
     "backslash": "\\",
     "underscore": "_",
-    "(star|asterisk)": "*",
+    "asterisk": "*", #star|
     "colon": ":",
     "(semicolon|semi-colon)": ";",
     "at": "@",
@@ -315,7 +315,7 @@ grammarCfg.cmd.map = Item(
         "calm [<n>]": Key("comma:%(n)d"),
         #'into': Key('space,bar,space'),
         'care':        Key('home'),
-        '(doll|dole)': Key('end'),
+        '(dole)': Key('end'), #doll|
         'chuck [<n>]':       Key('del:%(n)d'),
         'scratch [<n>]':     Key('backspace:%(n)d'),
         "visual": Key("v"),
