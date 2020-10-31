@@ -51,7 +51,7 @@ specialCharMap = {
     "(bar|vertical)": "|", #bar|pipe
     "(dash|minus|hyphen)": "-",
     #"dit": ".",
-    #"comma": ",",
+    "comma": ",",
     "backslash": "\\",
     "underscore": "_",
     "asterisk": "*", #star|
@@ -186,7 +186,7 @@ controlKeyMap = {
     "space": "space",
     "(enter|return|slap|slop)": "enter",
     "escape": "escape",
-    "tab": "tab",
+    "(tab|stab)": "tab",
     "backspace": "backspace",
 	"delete": "delete"
 }
@@ -248,6 +248,7 @@ grammarCfg.cmd.map = Item(
 		"emulator left":			Key("c-left"),
 		"emulator right":			Key("c-right"),
 		
+		"browser address": Key("a-d"),		
 
         "home": Key("home"),
         "(end|bend|lend|dole)": Key("end"),
@@ -322,10 +323,8 @@ grammarCfg.cmd.map = Item(
         "visual line": Key("s-v"),
         "visual block": Key("c-v"),
         "doc save": Key("c-s"),
-        "arrow": Text("->"),
-		"elvis": Text("?:"),
 
-		"browser address": Key("a-d"),
+
 
         'gope [<n>]':  Key('pgup:%(n)d'),
         #'drop [<n>]':  Key('pgdown:%(n)d'),

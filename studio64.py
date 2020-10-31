@@ -68,6 +68,7 @@ studio_rule = MappingRule(
 			"android resume":			Key("f9"),
 			"android stop":				Key("c-f2"),
 			"android evaluate":			Key("a-f8"),
+
 			"step into":				Key("f7"),
 			"step over":				Key("f8"),
 			"step cursor":				Key("a-f9"),
@@ -134,9 +135,8 @@ studio_rule = MappingRule(
 			#"design right":				Key("as-right"),
 			"XML view":					Key("c-b"),
 
-			"emulator back":			Key("c-backspace"),
-			"emulator home":			Key("c-h"),
-			"emulator overview":		Key("c-o"),
+			"arrow": 					Text("->"),
+			"elvis": 					Text("?:"),
 
 			"difference right":			Key("as-right"),
 			"difference left":			Key("as-left"),	
