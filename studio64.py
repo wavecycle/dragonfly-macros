@@ -63,6 +63,7 @@ studio_rule = MappingRule(
 			"view left":				Key("as-left"),
 
 			"android run":				Key("as-f10"),
+			"android apply":			Key("c-f10"),
 			"android debug":			Key("as-f9"),
 			"android resume":			Key("f9"),
 			"android stop":				Key("c-f2"),

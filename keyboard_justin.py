@@ -1,7 +1,7 @@
 # my version of keyboard.py derived from David Williams-King:
 # https://github.com/dwks/aenea-grammar-simple/blob/master/keyboard.py
 
-# from natlink import setMicState
+# from natlink import setMicState abc123
 from dragonfly import(
     Key,
     Text,
@@ -184,7 +184,7 @@ controlKeyMap = {
     "home": "home",
     "end": "end",
     "space": "space",
-    "(enter|return)": "enter",
+    "(enter|return|slap|slop)": "enter",
     "escape": "escape",
     "tab": "tab",
     "backspace": "backspace",
@@ -250,7 +250,7 @@ grammarCfg.cmd.map = Item(
 		
 
         "home": Key("home"),
-        "(end|bend)": Key("end"),
+        "(end|bend|lend|dole)": Key("end"),
         "doc home": Key("c-home/3"),
         "doc end": Key("c-end/3"),
         # Functional keys.
@@ -315,7 +315,7 @@ grammarCfg.cmd.map = Item(
         "calm [<n>]": Key("comma:%(n)d"),
         #'into': Key('space,bar,space'),
         'care':        Key('home'),
-        '(dole)': Key('end'), #doll|
+        '(dole|doll)': Key('end'), #doll|
         'chuck [<n>]':       Key('del:%(n)d'),
         'scratch [<n>]':     Key('backspace:%(n)d'),
         "visual": Key("v"),
