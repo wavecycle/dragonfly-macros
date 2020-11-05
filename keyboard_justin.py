@@ -46,7 +46,7 @@ release = Key("shift:up, ctrl:up, alt:up")
 #     setMicState("sleeping")
 
 
-# For repeating of characters.
+# For repeating of characters.hello
 specialCharMap = {
     "(bar|vertical)": "|", #bar|pipe
     "(dash|minus|hyphen)": "-",
@@ -68,7 +68,7 @@ specialCharMap = {
     "equal": "=",
     "plus": "+",
     "space": " ",
-    "bang": "!",
+    "(exclamation|bang)": "!",
     "question": "?",
     "caret": "^",
 	"square bracket": "[",
@@ -154,16 +154,6 @@ letterMap = {
     "(yankee|yaa) ": "y",
     "(zulu) ": "z",
 
-	"zero": "0",
-    "(one|won)": "1",
-    "two": "2",
-    "three": "3",
-    "four": "4",
-    "five": "5",
-    "six": "6",
-    "seven": "7",
-    "eight": "8",
-    "nine": "9",
 }
 
 # generate uppercase versions of every letter
@@ -173,16 +163,16 @@ for letter in letterMap: #(upper|sky)
 letterMap.update(upperLetterMap)
 
 numberMap = {
-    # "zero": "0",
-    # "one": "1",
-    # "two": "2",
-    # "three": "3",
-    # "four": "4",
-    # "five": "5",
-    # "six": "6",
-    # "seven": "7",
-    # "eight": "8",
-    # "nine": "9",
+    "zero": "0",
+    "one": "1",
+    "two": "2",
+    "three": "3",
+    "four": "4",
+    "five": "5",
+    "six": "6",
+    "seven": "7",
+    "eight": "8",
+    "nine": "9",
 }
 
 controlKeyMap = {
@@ -334,7 +324,6 @@ grammarCfg.cmd.map = Item(
         "visual line": Key("s-v"),
         "visual block": Key("c-v"),
         "doc save": Key("c-s"),
-
 
 
         'gope [<n>]':  Key('pgup:%(n)d'),
