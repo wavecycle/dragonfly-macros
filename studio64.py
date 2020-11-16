@@ -77,7 +77,14 @@ studio_rule = MappingRule(
 			"warning next":				Key("f2"),
 			"warning previous":			Key("s-f2"),
 
-			#"delete [<n>]":				Key("delete:%(n)d"),
+			# testing the line for n
+			#"go delete [<n>]":				Key("delete:%(n)d"),
+
+			"log delta":				Text('Log.d(TAG, "")') + Key("left:2"),
+			"log echo":					Text('Log.e(TAG, "")') + Key("left:2"),
+			"toast":					Text('Toast.makeText(activity, "", Toast.LENGTH_LONG).show()') + Key("left:28"),
+			"tag declare":				Text('private const val TAG = ""') + Key("left:1"),
+
 			"line delete":				Key("s-delete"),
 			"line duplicate":			Key("c-d"),
 
@@ -105,6 +112,8 @@ studio_rule = MappingRule(
 			
 			"code left":				Key("a-left"),
 			"code right":				Key("a-right"),
+			# "code left [<n>]": 		Key("a-left:%(n)d"),
+			# "code right [<n>]": 		Key("a-right:%(n)d"),
 			"code close":				Key("c-f4"),
 			# "code others":				Key(""),
 			"code reformat":			Key("ca-l"),
@@ -128,7 +137,7 @@ studio_rule = MappingRule(
 			"android redo":				Key("cs-z"),
 
 			"android hierarchy":		Key("c-h"),
-			"android declaration":		Key("c-b"),
+			"android usages":			Key("c-b"),
 			
 			"android help":				Key("c-q"),			
 

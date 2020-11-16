@@ -71,7 +71,7 @@ specialCharMap = {
     "(exclamation|bang)": "!",
     "question": "?",
     "caret": "^",
-	"square bracket": "[",
+	# "square bracket": "[",
 	#"lend": "end",
 
 	# "emulator back": "c-backspace",
@@ -241,6 +241,7 @@ grammarCfg.cmd.map = Item(
         #"down <n> (page|pages)": Key("pgdown:%(n)d"),
         #"left <n> (word|words)": Key("c-left/3:%(n)d/10"),
         #"right <n> (word|words)": Key("c-right/3:%(n)d/10"),
+
 
 		# Android emulator, couldn't get own file working
 		"emulator back":			Key("c-backspace"),
