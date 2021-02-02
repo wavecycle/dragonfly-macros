@@ -138,7 +138,7 @@ letterMap = {
     "(india|indigo|ish) ": "i",
     "(juliet|julia) ": "j",
     "(kilo) ": "k",
-    "(lima|lion|line|lie) ": "l",
+    "(lima|lion|lie) ": "l",
     "(mike) ": "m",
     "(november|noy) ": "n",
     "(Oscar|osh) ": "o",
